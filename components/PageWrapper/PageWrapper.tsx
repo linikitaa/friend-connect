@@ -1,6 +1,8 @@
 import { PropsWithChildren } from 'react'
 import s from './PageWrapper.module.scss'
 import Head from 'next/head'
+import { useThemeContext } from '@/components/ThemeProvider/Theme'
+import clsx from 'clsx'
 
 type PropsType = {
   title?: string
@@ -8,7 +10,6 @@ type PropsType = {
 
 export const PageWrapper = (props: PropsWithChildren<PropsType>) => {
   const { children } = props
-
   return (
     <>
       <Head>
@@ -17,7 +18,7 @@ export const PageWrapper = (props: PropsWithChildren<PropsType>) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={s.main}>{children}</div>
+      <div className={clsx(s.main)}>{children}</div>
     </>
   )
 }

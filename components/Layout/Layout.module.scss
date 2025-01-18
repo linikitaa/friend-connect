@@ -24,7 +24,17 @@
   grid-column-start: 2;
   min-height: calc(100vh - 180px);
   padding: 20px;
-  border: 1px solid #ddf2fd;
   border-radius: 5px;
-  box-shadow: 1px 1px 2px 0 rgba(0,0,0,.3);
+  box-shadow: var(--main-shadow-200);
+
+}
+.light {
+  background-color: var(--light-sidebar-bg-100);
+  border: 1px solid var(--light-sidebar-bg-100);
+
+}
+.dark {
+  background-color: var(--dark-sidebar-bg-100);
+  border: 1px solid var(--dark-sidebar-bg-100);
+
 }

@@ -15,10 +15,7 @@ export default function Header({ className }: PropsType) {
   return (
     <div className={clsx(s.header, className)}>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar
-          position="static"
-          sx={{ borderRadius: '5px', backgroundColor: '#427d9d' }}
-        >
+        <AppBar position="static" sx={{ borderRadius: '5px' }}>
           <Toolbar>
             <IconButton
               size="large"

@@ -1,7 +1,5 @@
 .Sidebar {
-  background-color: var(--main-color-100);
   box-shadow: var(--main-shadow-100);
-  border: 1px solid var(--main-color-100);
   min-height: calc(100vh - 160px);
   border-radius: 5px;
   padding: 20px 10px;
@@ -10,4 +8,28 @@
   flex-direction: column;
   align-items: center;
   gap: 5px;
+
+  position: relative;
+}
+
+.themeBtn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  left: calc((100% / 2) - 13px);
+}
+
+.light {
+  background-color: var(--light-sidebar-bg-100);
+  border: 1px solid var(--light-sidebar-bg-100);
+  .themeBtn {
+    color: var(--light-icon-color);
+  }
+}
+.dark {
+  background-color: var(--dark-sidebar-bg-100);
+  border: 1px solid var(--dark-sidebar-bg-100);
+  .themeBtn {
+    color: var(--dark-icon-color);
+  }
 }
