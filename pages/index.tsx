@@ -1,6 +1,5 @@
 import { PageWrapper } from '@/components/PageWrapper/PageWrapper'
-import { getLayout } from '@/components/Layout/Layout'
-import s from '../styles/Home.module.css'
+import { getLayout } from '@/components/Layout/BaseLayout/BaseLayout'
 
 function Home() {
   return <PageWrapper></PageWrapper>

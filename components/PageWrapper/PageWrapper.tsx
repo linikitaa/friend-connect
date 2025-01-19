@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import s from './PageWrapper.module.scss'
 import Head from 'next/head'
-import { useThemeContext } from '@/components/ThemeProvider/Theme'
+import { useThemeContext } from '@/components/ThemeProvider/ThemeProvider'
 import clsx from 'clsx'
 
 type PropsType = {

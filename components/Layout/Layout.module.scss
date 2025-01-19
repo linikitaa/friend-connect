@@ -10,12 +10,8 @@
 }
 
 .headerWrap {
-  align-items: center;
-  border-radius: 5px;
-  display: flex;
   grid-column-end: 3;
   grid-column-start: 1;
-  justify-content: space-between;
 }
 .sidebarWrap {
   grid-row-start: 2;
@@ -26,15 +22,4 @@
   padding: 20px;
   border-radius: 5px;
   box-shadow: var(--main-shadow-200);
-
-}
-.light {
-  background-color: var(--light-sidebar-bg-100);
-  border: 1px solid var(--light-sidebar-bg-100);
-
-}
-.dark {
-  background-color: var(--dark-sidebar-bg-100);
-  border: 1px solid var(--dark-sidebar-bg-100);
-
 }

@@ -7,7 +7,8 @@ import { ProfileIcon } from '@/public/icons/ProfileIcon'
 import { NewsIcon } from '@/public/icons/NewsIcon'
 import { UsersIcon } from '@/public/icons/UsersIcon'
 import ContrastIcon from '@mui/icons-material/Contrast'
-import { useThemeContext } from '@/components/ThemeProvider/Theme'
+import { useThemeContext } from '@/components/ThemeProvider/ThemeProvider'
+import { useTheme } from '@mui/material'
 
 interface Props {
   className?: string
@@ -20,15 +21,26 @@ const menuItems = [
 ]
 
 export const Sidebar = ({ className }: Props) => {
-  const { toggleTheme, themeMode } = useThemeContext()
-  console.log(themeMode)
+  const { toggleTheme } = useThemeContext()
+  const theme = useTheme()
   return (
     <PageWrapper>
-      <div className={clsx(s.Sidebar, className, s[themeMode])}>
+      <div
+        className={clsx(s.Sidebar, className)}
+        style={{
+          backgroundColor: theme.palette.secondary.main,
+        }}
+      >
         {menuItems.map(({ id, title, icon }) => (
           <LinkBlock key={id} icon={icon} title={title} />
         ))}
-        <ContrastIcon onClick={toggleTheme} className={s.themeBtn} />
+        <ContrastIcon
+          style={{
+            color: theme.palette.info.main,
+          }}
+          onClick={toggleTheme}
+          className={s.themeBtn}
+        />
       </div>
     </PageWrapper>
   )

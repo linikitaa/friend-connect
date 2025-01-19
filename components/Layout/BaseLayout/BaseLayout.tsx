@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement } from 'react'
 import { NextPage } from 'next'
 import { Layout } from '../Layout'
-import { CustomThemeProvider } from '@/components/ThemeProvider/Theme'
+import { CustomThemeProvider } from '@/components/ThemeProvider/ThemeProvider'
 
 export const BaseLayout: NextPage<PropsWithChildren> = (props) => {
   const { children } = props

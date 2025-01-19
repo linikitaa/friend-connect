@@ -1,6 +1,7 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react'
+import { createContext, PropsWithChildren, useContext } from 'react'
 import { createTheme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
+import { useThemeMode } from '@/components/ThemeProvider/useThemeMode'
 export enum ThemeType {
   DARK = 'dark',
   LIGHT = 'light',
@@ -14,21 +15,18 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined)
 
 export const CustomThemeProvider = ({ children }: PropsWithChildren) => {
-  const [themeMode, setThemeMode] = useState<ThemeType>(ThemeType.LIGHT)
+  const { themeMode, toggleTheme, isInitialized } = useThemeMode()
 
-  const toggleTheme = () => {
-    setThemeMode(
-      themeMode === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT,
-    )
+  if (!isInitialized) {
+    return null // Предотвращаем рендеринг до загрузки темы
   }
 
   const theme = createTheme({
     palette: {
       mode: themeMode,
-      primary: {
-        main: '#427d9d',
-        contrastText: '#fff',
-      },
+      primary: { main: themeMode === 'light' ? '#427d9d' : '#1a1d1e' },
+      secondary: { main: themeMode === 'light' ? '#ddf2fd' : '#24363d' },
+      info: { main: themeMode === 'light' ? '#427d9d' : '#ddf2fd' },
     },
   })
 
