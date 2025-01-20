@@ -5,24 +5,28 @@ import Header from '@/components/Header/Header'
 import { Sidebar } from '@/components/Sidebar/Sidebar'
 import clsx from 'clsx'
 import { useTheme } from '@mui/material/styles'
+import { store } from '@/store/store'
+import { Provider } from 'react-redux'
 export const Layout: NextPage<PropsWithChildren> = (props) => {
   const { children } = props
 
   const theme = useTheme()
 
   return (
-    <div className={s.container}>
-      <Header className={s.headerWrap} />
-      <Sidebar className={s.sidebarWrap} />
-      <div
-        style={{
-          backgroundColor: theme.palette.secondary.main,
-        }}
-        className={clsx(s.main)}
-      >
-        {children}
+    <Provider store={store}>
+      <div className={s.container}>
+        <Header className={s.headerWrap} />
+        <Sidebar className={s.sidebarWrap} />
+        <div
+          style={{
+            backgroundColor: theme.palette.secondary.main,
+          }}
+          className={clsx(s.main)}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </Provider>
   )
 }
 
